@@ -1,0 +1,121 @@
+# set up the environment by reading in libraries: 
+# os... graphics... data manipulation... time... math... statistics...
+
+import sys
+import os
+from urllib.request import urlretrieve
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+%matplotlib inline
+import PIL as pil
+from IPython.display import Image
+
+import pandas as pd
+from pandas import DataFrame, Series
+import pandas_datareader
+from datetime import datetime
+
+import scipy as sp
+import numpy as np
+import math
+import random
+
+import seaborn as sns
+import statsmodels
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+
+# import delong functions
+
+from delong_functions.data_functions import getdata_read_or_download # get or download data file
+from delong_functions.stat_functions import initialize_basic_figure  # initialize graphics
+from delong_functions.data_functions import data_FREDseries          # construct a useful dict with source
+                                                                     # and notes info from a previously 
+                                                                     # downloaded FRED csv file
+# check to see if functions successfully created... 
+# NOW COMMENTED OUT: getdata_read_or_download? initialize_basic_figure?
+----
+
+# graphics setup: seaborn-darkgrid and figure size...
+
+plt.style.use('seaborn-darkgrid')
+
+figure_size = plt.rcParams["figure.figsize"]
+figure_size[0] = 7
+figure_size[1] = 7
+plt.rcParams["figure.figsize"] = figure_size
+
+----
+
+# import delong functions
+
+from delong_functions.data_functions import getdata_read_or_download # get or download data file
+from delong_functions.stat_functions import initialize_basic_figure  # initialize graphics
+from delong_functions.data_functions import data_FREDseries          # construct a useful dict with source
+                                                                     # and notes info from a previously 
+                                                                     # downloaded FRED csv file
+# check to see if functions successfully created... 
+# NOW COMMENTED OUT: getdata_read_or_download? initialize_basic_figure?
+
+----
+
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+ 
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+
+----
+
+<img src="https://www.evernote.com/l/AAG-zX_71ZpB66QEEBbisYCikZdg1L5OTvAB/image.png" style="float:right;" height="400" width="400" />
+
+----
+
+#### Directions for Making the Figure Above: "Real GDP, BAA Bond Rate, Unemployment Rate, and 10-Year Breakeven Inflation Forecast..."
+
+>1. Surf over to: <http://fred.stlouisfed.com>
+2. Enter "GDPC1" in the search box at the upper right; press the enter/return key
+3. Click in the checkbox next to "Billions of Chained 2009 Dollars, Quarterly"
+4. Click "add to graph"
+5. Click in the box just to the right of the word "Max" in which "1947-01-01" is entered
+6. Replace "1947-01-01" with "2007-01-01" and press enter/return
+7. Move your control arrow on the screen over to where the blue graphed line intersects the y-axis: confirm that the hover box says: "Q1 2007: 14,726.0"
+8. Click the "EDIT GRAPH" button
+9. Click the "FORMAT" tab
+10. Change the "Recession Shading" control from "On" to "Off"
+11. Enter "600" into the "Width" box
+12. Click the "Apply" button
+13. Click the "EDIT LINE 1" tab
+14. Enter a/147.26 in the "Formula" box. Click the "Apply" button to the right of the "Formula" box
+15. Click the "ADD LINE" tab
+16. Type "UNRATE" into the "Add data series to graph" box. Click on the "Civilian Unemployment Rate" popup. Click on the "Add data series" button
+17. Enter 1/.046 in the "Formula" box. Click the "Apply" button to the right of the "Formula" box
+18. Click the "ADD LINE" tab
+19. Type "DBAA" into the "Add data series to graph" box. Click on the popup. Click on the "Add data series" button
+20. Enter 1/.0616 in the "Formula" box. Click the "Apply" button to the right of the "Formula" box
+21. Click the "ADD LINE" tab
+19. Type "T10YIE" into the "Add data series to graph" box. Click on the popup. Click on the "Add data series" button
+17. Enter 1/.0236 in the "Formula" box. Click the "Apply" button to the right of the "Formula" box
+
+>Thereafter:
+
+>1. Resize figure as desired
+2. Screen capture the figure
+3. Trim the figure
+4. Add title and data labels
+
+
