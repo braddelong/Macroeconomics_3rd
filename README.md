@@ -1,1 +1,3 @@
 # Macroeconomics_3rd
+
+This will be where the draft of the 3rd edition of DeLong & Olney, _Macroeconomics_, will live...
